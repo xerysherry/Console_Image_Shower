@@ -1,8 +1,8 @@
 {
   "name": "xerysherry",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Image Shower in Console",
+  "main": "./bin/cis.js",
   "bin": {
     "cis": "./bin/cis"
   },
@@ -17,6 +17,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "xerysherry",
   "license": "Apache 2.0"
 }
