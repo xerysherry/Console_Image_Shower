@@ -1,0 +1,22 @@
+{
+  "name": "xerysherry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "cis": "./bin/cis"
+  },
+  "dependencies": {
+    "colors.ts": "^1.0.9",
+    "get-pixels": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^9.3.0",
+    "typescript": "^2.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache 2.0"
+}
