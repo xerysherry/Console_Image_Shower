@@ -1,10 +1,10 @@
 {
-  "name": "cis",
+  "name": "cishower",
   "version": "1.0.0",
   "description": "Image Shower in Console",
-  "main": "./dist/cis.js",
+  "main": "./dist/cishower.js",
   "bin": {
-    "cis": "./bin/cis"
+    "cishower": "./bin/cishower"
   },
   "dependencies": {
     "colors.ts": "^1.0.9",
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/xerysherry/Console_Image_Shower.git"
   },
-  "keywords":  [
+  "keywords": [
     "console",
     "colors",
     "typescript",

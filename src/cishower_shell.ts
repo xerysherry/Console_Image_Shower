@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { shower } from "./cis";
+import { shower } from "./cishower";
 
 let args = process.argv.splice(2);
 let w = 80;
@@ -53,8 +53,8 @@ function Description() {
     console.log("    -bg: set background color if image transparent. [whilte|black|000000~ffffff]");
     console.log("    -m: set w/h = 1:1, default: w/h = 2:1");
     console.log("    -v: image info show");
-    console.log("   ex. cis filepath -w 80 -g -v".green);
-    console.log("   ex. cis url -m -bg 0000ff".green);
+    console.log("   ex. cishower filepath -w 80 -g -v".green);
+    console.log("   ex. cishower url -m -bg 0000ff".green);
 }
 
 
