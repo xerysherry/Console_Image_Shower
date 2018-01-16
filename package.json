@@ -16,7 +16,7 @@
   },
   "author": "xerysherry",
   "license": "Apache 2.0",
-  "typings": "lib/index.d.ts",
+  "typings": "src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xerysherry/Console_Image_Shower.git"

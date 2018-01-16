@@ -50,7 +50,8 @@ export function shower(file: string, w: number, h: number = 0,
     pos?:[number, number]): void {
         
     let background_rgb = null;
-    background = background.toLowerCase();
+    if(background != null)
+        background = background.toLowerCase();
     if (background == null || background == "black")
         background_rgb = [0, 0, 0];
     else if (background == "white")

@@ -33,7 +33,8 @@ function shower(file, w, h, verbose, gray, background, mode, pos) {
     if (background === void 0) { background = null; }
     if (mode === void 0) { mode = false; }
     var background_rgb = null;
-    background = background.toLowerCase();
+    if (background != null)
+        background = background.toLowerCase();
     if (background == null || background == "black")
         background_rgb = [0, 0, 0];
     else if (background == "white")
