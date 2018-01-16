@@ -40,6 +40,8 @@ shower("https://www.linuxfoundation.org/wp-content/uploads/2017/05/nodejs_logo.p
 
 Screenshot
 ----------
+![screenshot1](https://raw.githubusercontent.com/xerysherry/Console_Image_Shower/master/screenshot/screenshot1.png)
+![screenshot2](https://raw.githubusercontent.com/xerysherry/Console_Image_Shower/master/screenshot/screenshot2.png)
 
 命令行图片查看器
 ====================
@@ -83,3 +85,6 @@ shower("https://www.linuxfoundation.org/wp-content/uploads/2017/05/nodejs_logo.p
 
 截图
 ----
+
+![screenshot1](https://raw.githubusercontent.com/xerysherry/Console_Image_Shower/master/screenshot/screenshot1.png)
+![screenshot2](https://raw.githubusercontent.com/xerysherry/Console_Image_Shower/master/screenshot/screenshot2.png)
