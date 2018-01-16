@@ -1,8 +1,8 @@
 {
-  "name": "xerysherry",
+  "name": "cis",
   "version": "1.0.0",
   "description": "Image Shower in Console",
-  "main": "./bin/cis.js",
+  "main": "./dist/cis.js",
   "bin": {
     "cis": "./bin/cis"
   },
@@ -14,9 +14,29 @@
     "@types/node": "^9.3.0",
     "typescript": "^2.6.2"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "xerysherry",
-  "license": "Apache 2.0"
+  "license": "Apache 2.0",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xerysherry/Console_Image_Shower.git"
+  },
+  "keywords":  [
+    "console",
+    "colors",
+    "typescript",
+    "ts",
+    "shower",
+    "viewer",
+    "image",
+    "pixels",
+    "util"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/xerysherry/Console_Image_Shower/issues"
+  },
+  "homepage": "https://github.com/xerysherry/Console_Image_Shower#readme"
 }

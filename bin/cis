@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('./cis.js')
+require('../dist/cis_shell.js')
