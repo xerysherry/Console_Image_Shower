@@ -16,5 +16,5 @@
 import { shower } from "cishower";
 
 shower("https://www.linuxfoundation.org/wp-content/uploads/2017/05/nodejs_logo.png",
-    80, undefined, undefined, undefined, "white", undefined, [1,1]);
+    80, undefined, undefined, undefined, "white", undefined, undefined, [1,1]);
 

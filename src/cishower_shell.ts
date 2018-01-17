@@ -14,6 +14,7 @@
  */
 
 import { shower } from "./cishower";
+import colors = require("colors.ts");
 
 let args = process.argv.splice(2);
 let w = 80;
@@ -21,6 +22,7 @@ let h = 0;
 let verbose = false;
 let gray = false;
 let background_p:string = null;
+let adjust = false;
 
 let mode = false;
 let file = "";
@@ -29,6 +31,8 @@ for (let i = 0; i < args.length; ++i) {
     let a = args[i];
     if (a == "-w" || a == "--w")
         w = parseInt(args[++i]);
+    else if (a == "-a" || a== "--a" || a == "--adjust" || a == "-adjust")
+        adjust = true;
     else if (a == "-h" || a == "--h")
         h = parseInt(args[++i]);
     else if(a == "-v" || a == "--v"|| a=="-verbose" ||a=="--verbose")
@@ -44,9 +48,17 @@ for (let i = 0; i < args.length; ++i) {
         file = args[i];
 }
 
+if(adjust)
+{
+    w = process.stdout.columns-1;
+    if(mode)
+        w = Math.floor(w/2);
+}
+
 function Description() {
     console.log("Console Image Shower");
     console.log("    file/url: input image localpath or address")
+    console.log("    -a: adjust console width")
     console.log("    -w: image show width. default = 80");
     console.log("    -h: image show height. if h=0, auto adjust");
     console.log("    -g: gray mode");
@@ -57,10 +69,15 @@ function Description() {
     console.log("   ex. cishower url -m -bg 0000ff".green);
 }
 
-
 if (file == null || file.length == 0) {
     Description();
 }
 else {
-    shower(file, w, h, verbose, gray, background_p, mode);
+    if(colors.support() < colors.Support.ANSI256)
+    {
+        let gray_charlist = [' ','.',',','-','~','=','c','o','n','m','O','A','M']
+        shower(file, w, h, verbose, gray, background_p, mode, gray_charlist);
+    }
+    else
+        shower(file, w, h, verbose, gray, background_p, mode);
 }

@@ -17,6 +17,7 @@ cishower <file/url>
 
 Command Parameter:
 
+    -a: adjust console width
     -w: image show width. default = 80  
     -h: image show height. if h=0, auto adjust  
     -g: gray mode  
@@ -36,7 +37,7 @@ Import it, and like this:
 import { shower } from "cishower";
 
 shower("https://www.linuxfoundation.org/wp-content/uploads/2017/05/nodejs_logo.png",
-    80, undefined, undefined, undefined, "white", undefined, [1,1]);
+    80, undefined, undefined, undefined, "white", undefined, undefined, [1,1]);
 ```
 
 Screenshot
@@ -63,6 +64,7 @@ cishower <file/url>
 
 命令行参数说明:
 
+    -a: 适配命令行宽度
     -w: 显示时图片宽度，默认为80  
     -h: 显示是图片高度，高度为0是自动匹配，默认为0  
     -g: 是否灰度显示图片  
@@ -82,7 +84,7 @@ cishower <file/url>
 import { shower } from "cishower";
 
 shower("https://www.linuxfoundation.org/wp-content/uploads/2017/05/nodejs_logo.png",
-    80, undefined, undefined, undefined, "white", undefined, [1,1]);
+    80, undefined, undefined, undefined, "white", undefined, undefined, [1,1]);
 ```
 
 截图

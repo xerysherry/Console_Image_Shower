@@ -47,8 +47,9 @@ function GetPixels(pixels, pw, ph, x, y, w, h) {
 export function shower(file: string, w: number, h: number = 0,
     verbose: boolean = false, gray: boolean = false,
     background: string = null, mode: boolean = false,
-    pos?:[number, number]): void {
+    charlist?:string[], pos?:[number, number]): void {
         
+    let support = Colors.support();
     let background_rgb = null;
     if(background != null)
         background = background.toLowerCase();
@@ -113,9 +114,18 @@ export function shower(file: string, w: number, h: number = 0,
                     rgba[1] = Math.floor(rgba[1] * a + background_rgb[1] * (1 - a));
                     rgba[2] = Math.floor(rgba[2] * a + background_rgb[2] * (1 - a));
                 }
+                let avg = -1;
+                if(charlist != null)
+                {
+                    avg = (rgba[0] + rgba[1] + rgba[2]) / 3 / 255;
+                    fillchar = charlist[Math.floor(avg * (charlist.length-1))]
+                    if(mode)
+                        fillchar = fillchar + fillchar;
+                }
                 if (gray) {
-                    let g = Math.floor((rgba[0] + rgba[1] + rgba[2]) / 3 / 255 * 26)
-                    line += fillchar.gray_bg(g);
+                    if(avg < 0)
+                        avg = (rgba[0] + rgba[1] + rgba[2]) / 3 / 255
+                    line += fillchar.gray_bg(Math.floor(avg * 26));
                 }
                 else {
                     let rs = rgba[0].toString(16);
@@ -127,7 +137,7 @@ export function shower(file: string, w: number, h: number = 0,
                     let bs = rgba[2].toString(16);
                     if (rgba[2] < 0x10)
                         bs = '0' + bs;
-                    line += Colors.colors("b#" + rs + gs + bs, fillchar);
+                    line += Colors.colors("b#" + rs + gs + bs, fillchar, true);
                 }
             }
             if(pos != null)
@@ -135,7 +145,10 @@ export function shower(file: string, w: number, h: number = 0,
                 line = line.position(pos[0], pos[1]);
                 ++pos[1];
             }
-            console.log(line);
+            if(support < Colors.Support.ANSI256)
+                console.log(line);
+            else
+                console.log(line + "".reset);
         }
     })
 

@@ -26,12 +26,13 @@ function GetPixels(pixels, pw, ph, x, y, w, h) {
     a = Math.floor(a / i);
     return [r, g, b, a];
 }
-function shower(file, w, h, verbose, gray, background, mode, pos) {
+function shower(file, w, h, verbose, gray, background, mode, charlist, pos) {
     if (h === void 0) { h = 0; }
     if (verbose === void 0) { verbose = false; }
     if (gray === void 0) { gray = false; }
     if (background === void 0) { background = null; }
     if (mode === void 0) { mode = false; }
+    var support = Colors.support();
     var background_rgb = null;
     if (background != null)
         background = background.toLowerCase();
@@ -89,9 +90,17 @@ function shower(file, w, h, verbose, gray, background, mode, pos) {
                     rgba[1] = Math.floor(rgba[1] * a + background_rgb[1] * (1 - a));
                     rgba[2] = Math.floor(rgba[2] * a + background_rgb[2] * (1 - a));
                 }
+                var avg = -1;
+                if (charlist != null) {
+                    avg = (rgba[0] + rgba[1] + rgba[2]) / 3 / 255;
+                    fillchar = charlist[Math.floor(avg * (charlist.length - 1))];
+                    if (mode)
+                        fillchar = fillchar + fillchar;
+                }
                 if (gray) {
-                    var g = Math.floor((rgba[0] + rgba[1] + rgba[2]) / 3 / 255 * 26);
-                    line += fillchar.gray_bg(g);
+                    if (avg < 0)
+                        avg = (rgba[0] + rgba[1] + rgba[2]) / 3 / 255;
+                    line += fillchar.gray_bg(Math.floor(avg * 26));
                 }
                 else {
                     var rs = rgba[0].toString(16);
@@ -103,14 +112,17 @@ function shower(file, w, h, verbose, gray, background, mode, pos) {
                     var bs = rgba[2].toString(16);
                     if (rgba[2] < 0x10)
                         bs = '0' + bs;
-                    line += Colors.colors("b#" + rs + gs + bs, fillchar);
+                    line += Colors.colors("b#" + rs + gs + bs, fillchar, true);
                 }
             }
             if (pos != null) {
                 line = line.position(pos[0], pos[1]);
                 ++pos[1];
             }
-            console.log(line);
+            if (support < Colors.Support.ANSI256)
+                console.log(line);
+            else
+                console.log(line + "".reset);
         }
     });
 }
