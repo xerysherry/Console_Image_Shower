@@ -1,6 +1,8 @@
 Console Image Shower
 ====================
 
+![npm](https://nodei.co/npm/cishower.png)
+
 How to install?
 ---------------
 
