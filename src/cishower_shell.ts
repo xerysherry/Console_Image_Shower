@@ -25,6 +25,7 @@ let background_p:string = null;
 let adjust = false;
 
 let mode = false;
+let md = false;
 let file = "";
 
 for (let i = 0; i < args.length; ++i) {
@@ -44,6 +45,8 @@ for (let i = 0; i < args.length; ++i) {
         background_p = args[++i];
     else if(a == "-m" || a=="--m" || a=="-mode" || a == "--mode")
         mode = true;
+    else if(a == "-md" || a=="--md" || a=="-more_detail" || a=="--more_detail")
+        md = true;
     else
         file = args[i];
 }
@@ -55,6 +58,9 @@ if(adjust)
         w = Math.floor(w/2);
 }
 
+if(md)
+    colors.more_detail_on_color256();
+
 function Description() {
     console.log("Console Image Shower");
     console.log("    file/url: input image localpath or address")
@@ -64,6 +70,7 @@ function Description() {
     console.log("    -g: gray mode");
     console.log("    -bg: set background color if image transparent. [whilte|black|000000~ffffff]");
     console.log("    -m: set w/h = 1:1, default: w/h = 2:1");
+    console.log("    -md: more detail in color256, but will be grayful");
     console.log("    -v: image info show");
     console.log("   ex. cishower filepath -w 80 -g -v".green);
     console.log("   ex. cishower url -m -bg 0000ff".green);
